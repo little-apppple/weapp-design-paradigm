@@ -3,7 +3,7 @@
 # 用法：./sync.sh [源目录]
 set -euo pipefail
 
-SRC="${1:-D:/data/.workbuddy/skills/weapp-design-paradigm}"
+SRC="${1:-$HOME/.workbuddy/skills/weapp-design-paradigm}"
 DEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 if [ ! -f "$SRC/SKILL.md" ]; then
