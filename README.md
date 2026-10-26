@@ -24,6 +24,7 @@
 ```
 .
 ├── SKILL.md                          # 主文件：六套范式 + 决策流程 + 检查清单
+├── sync.sh                           # 从 WorkBuddy 技能目录同步内容到本仓库
 └── references/
     ├── official-design-guide.md      # 官方设计指南七章 + 视觉规范 + 落地映射
     ├── layout-adaptation.md          # 单位/基准/断点/旋转/媒体查询/大屏布局/栅格
@@ -78,6 +79,18 @@ skillhub install weapp-design-paradigm
 - DarkMode 适配指南 `/miniprogram/dev/framework/ability/darkmode.html`
 
 机型实测数据来自公开机型适配实践汇总，个别数值在不同系统版本有浮动，已在 `references/device-data.md` 标注异常阈值。
+
+## 维护
+
+Skill 的编辑与调试在 WorkBuddy 技能目录进行，本仓库作为版本化备份与分发源。改完内容后执行：
+
+```bash
+./sync.sh                 # 默认从 ~/.workbuddy/skills/weapp-design-paradigm 同步
+git add -A && git commit -m "docs: 更新说明"
+git push
+```
+
+`sync.sh` 只覆盖 `SKILL.md` 与 `references/`，不会动本仓库的 README、.gitignore 与 git 元数据。同步前记得在 `SKILL.md` 里递增 version，并与 SkillHub 上的版本保持一致。
 
 ## 版本记录
 
